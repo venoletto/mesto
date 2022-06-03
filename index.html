@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./pages/index.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="page">
+
+        <header class="header">
+            <img src="./images/logo.svg" alt="Логотип сайта" class="header__logo">
+        </header>
+
+        <section class="profile">
+            <div class="profile__block">
+                <img src="./images/image.jpg" alt="Фото пользователя" class="profile__avatar">
+                <div class="profile__main-info">
+                    <div class="profile__name">
+                        <h1 class="profile__text">Жак-Ив Кусто</h1>
+                        <img src="./images/Edit Button.svg" alt="редактировать профиль" class="profile__edit-button">
+                    </div>
+                    <p class="profile__subtext">Исследователь океана</p>
+                </div>
+            </div>
+            <button class=profile__add-button></button>
+        </section>
+
+        <section class="elements">
+
+            <div class="elements__cell">
+                <img src="./images/kirill-pershin-1556355-unsplash (1).png" alt="" class="elements__image">
+                <div class="elements__text">
+                  <p class="elements__name">Карачаевск</p>
+                  <button class="elements__like-button"><img src="./images/like.svg" alt="" class="elements__like-img"></button>
+                </div>
+            </div>
+            <div class="elements__cell">
+                <img src="./images/kirill-pershin-1088404-unsplash.png" alt="" class="elements__image">
+                <div class="elements__text">
+                  <p class="elements__name">Гора Эльбрус</p>
+                  <button class="elements__like-button"></button>
+                </div>
+            </div>
+            <div class="elements__cell">
+                <img src="./images/kirill-pershin-1404681-unsplash (1).png" alt="" class="elements__image">
+                <div class="elements__text">
+                  <p class="elements__name">Домбай</p>
+                  <button class="elements__like-button"></button>
+                </div>
+            </div>
+            <div class="elements__cell">
+                <img src="./images/kirill-pershin-1404681-unsplash.png" alt="" class="elements__image">
+                <div class="elements__text">
+                  <p class="elements__name">Гора Эльбрус</p>
+                  <button class="elements__like-button"></button>
+                </div>
+            </div>
+            <div class="elements__cell">
+                <img src="./images/kirill-pershin-1088404-unsplash.jpg" alt="" class="elements__image">
+                <div class="elements__text">
+                  <p class="elements__name">Домбай</p>
+                  <button class="elements__like-button"></button>
+                </div>
+            </div>
+            <div class="elements__cell">
+                <img src="./images/kirill-pershin-1556355-unsplash.png" alt="" class="elements__image">
+                <div class="elements__text">
+                  <p class="elements__name">Карачаево-Черкесск</p>
+                  <button class="elements__like-button"></button>
+                </div>
+            </div>
+        </section>
+
+        <footer class="footer">
+            <p class="footer__text">© 2020 Mesto Russia</p>
+        </footer>
+
+        <div class="popup popup__remove">
+            <div class="popup__container">
+                <button class="popup__close-button"></button>
+                <form action="" class="popup__form">
+                  <h2 class="popup__text">Редактировать профиль</h2>
+                  <label for="username" class="popup__username-label">
+                    <input class="popup__username-input" type="text" placeholder="имя и фамилия" name="username">
+                  </label>
+                  <label for="status" class="popup__status-label">
+                    <input class="popup__status-input" type="text" placeholder="статус" name="status">
+                  </label>
+                  <button class="popup__submit">Сохранить</button>
+                </form>
+            </div>
+        </div>
+        <script src="./pages/index.js"></script>
+
+    </div>
+    
+</body>
+</html>

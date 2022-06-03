@@ -1,0 +1,5 @@
+.elements__image{
+    object-fit: cover;
+    width: inherit;
+    margin: 0;
+}

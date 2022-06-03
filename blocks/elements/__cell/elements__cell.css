@@ -1,0 +1,7 @@
+.elements__cell{
+    width: 282px;
+    height: 361px;
+    object-fit: cover;
+    border-radius: 10px;
+    overflow: hidden;
+}
