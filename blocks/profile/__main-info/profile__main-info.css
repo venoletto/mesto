@@ -5,3 +5,9 @@
     margin: 0;
     gap: 16px;
 }
+
+@media (max-width:896px){
+    .profile__main-info{
+        gap: 8px;
+    }
+}

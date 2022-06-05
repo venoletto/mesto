@@ -3,8 +3,7 @@
     padding: 45px 0 0 0;
     max-width: 880px;
     min-height: 74px;
-    border-bottom:1px solid #545454;
-    opacity: 0.7;
+    border-bottom: 1px solid rgba(84, 84, 84, 1);
     display: flex;
 }
 
@@ -17,5 +16,6 @@
 @media (max-width:596px) {
     .header{ 
         max-width: 320px;
+        padding: 28px 0 0 0;
     }
 }

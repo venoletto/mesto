@@ -2,7 +2,7 @@
     border: none;
     width: 150px;
     height: 50px;
-    background-image: url(../../../images/Add\ Button\ \(1\).svg);
+    background-image: url(../../../images/Add-Button-1.svg);
     background-size: cover;
     align-self: center;
     transition: 0.3s;
@@ -14,9 +14,12 @@
     opacity: 0.6;
 }
 
+ /* я пытался с разными вариациями background-size, как в основном разделе так и в медиа зоне - не помогает, не понимаю как с этим справиться. Решил вставить кнопку из макета для телефонной версии*/
+
 @media (max-width:596px){
     .profile__add-button{
         width: 284px;
-        background-image: url(../../../images/Add\ Button.svg);
+        background-image: url(../../../images/Add-Button.svg);
+        margin-top: 8px;
     }
 }

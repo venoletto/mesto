@@ -4,12 +4,23 @@
     font-weight: 400;
     font-size: 18px;
     line-height: 22px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    max-width: 350px;
 }
 
 @media (max-width:896px){
     .profile__subtext{
-        font-weight: 400;
         font-size: 14px;
         line-height: 17px;
+        max-width: 282px;
+        margin: 0 10px 0 12px;
+    }
+}
+
+@media (max-width:550px){
+    .profile__subtext{
+        max-width: 210px;
     }
 }

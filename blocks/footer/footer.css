@@ -14,5 +14,7 @@
 @media (max-width:596px) {
     .footer{ 
         max-width: 282px;
+        padding-top: 37px;
+        padding-bottom: 36px;
     }
 }

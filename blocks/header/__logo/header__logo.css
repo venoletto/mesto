@@ -3,3 +3,12 @@
     justify-self: flex-start;
     color: #FFF;
 }
+
+
+@media (max-width:596px) {
+    .header__logo{ 
+        max-width: 103px;
+        max-height: 24px;
+        margin: 10px 0 0 27px;
+    }
+}
