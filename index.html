@@ -14,7 +14,7 @@
             <img src="./images/logo.svg" alt="Логотип сайта" class="header__logo">
         </header>
 
-<main class="main">
+        <main class="main">
 
         <section class="profile">
             <div class="profile__block">
@@ -27,7 +27,7 @@
                     <p class="profile__subtext">Исследователь океана</p>
                 </div>
             </div>
-            <button class="profile__add-button" type="button"></button>
+            <button class="profile__add-button" type="button"><img src="./images/Add-Button.svg" alt=""></button>
         </section>
 
         <section class="elements">
@@ -76,30 +76,28 @@
             </div>
         </section>
 
-</main>
+        </main>
 
         <footer class="footer">
             <p class="footer__text">© 2020 Mesto Russia</p>
         </footer>
 
-        <!-- я не понял что мне здесь нужно исправить, можете пожалуйста подробнее? "По умолчанию попап скрыт. 
-Появляется при добавлении класса, а не удалении."-->
-        <div class="popup popup_remove">
+        <div class="popup popup__remove">
             <div class="popup__container">
                 <button class="popup__close-button" type="button"></button>
                 <form action="URL" class="popup__form" name="popup__form">
                   <h2 class="popup__text">Редактировать профиль</h2>
-                  <label for="username" class="popup__label">
-                    <input class="popup__input popup__username-input" type="text" placeholder="имя и фамилия" id="username">
+                  <label for="lusername" class="popup__label">
+                    <input class="popup__input popup__input_username" type="text" placeholder="имя и фамилия" id="lusername" name="username">
                   </label>
-                  <label for="status" class="popup__label">
-                    <input class="popup__input popup__status-input" type="text" placeholder="статус" id="status">
+                  <label for="lstatus" class="popup__label">
+                    <input class="popup__input popup__input_status" type="text" placeholder="статус" id="lstatus" name="status">
                   </label>
                   <button class="popup__submit" type="submit">Сохранить</button>
                 </form>
             </div>
         </div>
-        <script src="./script/index.js"></script>
+        <script src="./scripts/index.js"></script>
 
     </div>
     

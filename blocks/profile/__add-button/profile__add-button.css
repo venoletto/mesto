@@ -1,25 +1,23 @@
 .profile__add-button{
-    border: none;
-    width: 150px;
-    height: 50px;
-    background-image: url(../../../images/Add-Button-1.svg);
-    background-size: cover;
+    display: flex;
     align-self: center;
+    background-size: cover;
+    padding: 12px 62px;
+    border: 2px solid rgba(255, 255, 255, 1);
     transition: 0.3s;
     background-color: #000;
     cursor: pointer;
+    margin-bottom: 8px;
 }
 
 .profile__add-button:hover{
     opacity: 0.6;
 }
 
- /* я пытался с разными вариациями background-size, как в основном разделе так и в медиа зоне - не помогает, не понимаю как с этим справиться. Решил вставить кнопку из макета для телефонной версии*/
 
 @media (max-width:596px){
     .profile__add-button{
-        width: 284px;
-        background-image: url(../../../images/Add-Button.svg);
+        padding: 12px 129px;
         margin-top: 8px;
     }
 }

@@ -1,8 +1,8 @@
 .header{
     margin: 0 auto 36px auto;
-    padding: 45px 0 0 0;
+    padding: 45px 0 41px 0;
     max-width: 880px;
-    min-height: 74px;
+    max-height: 74px;
     border-bottom: 1px solid rgba(84, 84, 84, 1);
     display: flex;
 }
@@ -16,6 +16,8 @@
 @media (max-width:596px) {
     .header{ 
         max-width: 320px;
-        padding: 28px 0 0 0;
+        padding: 28px 0 31px 0;
+        max-height: 56px;
+        margin: 0 auto 38px auto;
     }
 }

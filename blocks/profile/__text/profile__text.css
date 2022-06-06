@@ -15,13 +15,12 @@
     .profile__text{
         font-size: 27px;
         line-height: 33px;
+        max-width: 220px;
     }
 }
 
 @media (max-width:550px){
     .profile__text{
-        font-size: 27px;
-        line-height: 33px;
         max-width: 210px;
     }
 }
