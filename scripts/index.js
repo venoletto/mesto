@@ -8,14 +8,14 @@ let statusInfo = document.querySelector('.popup__input_status');
 let formElement = document.querySelector('.popup__form')
 
 function openPopup () {
-  popup.classList.remove('popup__remove');
+  popup.classList.remove('popup');
   bio.value = name.textContent;
   statusInfo.value = status.textContent;
 
 }
 
 function closePopup() {
-    popup.classList.add('popup__remove');
+    popup.classList.add('popup');
 }
 
 openButton.addEventListener('click', openPopup);
