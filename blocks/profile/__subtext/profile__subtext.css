@@ -14,13 +14,13 @@
     .profile__subtext{
         font-size: 14px;
         line-height: 17px;
-        max-width: 282px;
+        max-width: 220px;
         margin: 0 10px 0 12px;
     }
 }
 
 @media (max-width:550px){
     .profile__subtext{
-        max-width: 210px;
+        max-width: 180px;
     }
 }
