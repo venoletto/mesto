@@ -3,3 +3,10 @@
     background-color: #000;
     font-family: 'Inter', Arial, Helvetica, sans-serif;
 }
+
+@media (max-width:340px) {
+    .page{
+        min-width: 300px;
+    }
+    
+}
