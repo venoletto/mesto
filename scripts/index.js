@@ -98,7 +98,7 @@ const initialCards = [
 let elementsTemplate = document.querySelector('.elements__template').content;
 let elements = document.querySelector('.elements');
 
-function startElements (cell){
+function newElements (cell){
   let newElement = elementsTemplate.querySelector('.elements__cell').cloneNode(true);
   newElement.querySelector('.elements__name').textContent = cell.name;
   newElement.querySelector('.elements__image').src = cell.link;
@@ -110,7 +110,12 @@ function startElements (cell){
     newElement.remove();
   })
 
+  let likeButton = newElement.querySelector('.elements__like-button')
+  likeButton.addEventListener('click', function(){
+    likeButton.classList.toggle('elements__like-button_type_active')
+  })
+
   return newElement;
 }
 
-initialCards.forEach(startElements);
+initialCards.forEach(newElements);
