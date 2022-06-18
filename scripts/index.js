@@ -104,6 +104,12 @@ function startElements (cell){
   newElement.querySelector('.elements__image').src = cell.link;
   elements.insertAdjacentElement('afterbegin', newElement);
 
+
+  let trashButton = document.querySelector('.elements__trash');
+  trashButton.addEventListener('click', function(){
+    newElement.remove();
+  })
+
   return newElement;
 }
 
