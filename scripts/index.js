@@ -46,7 +46,12 @@ function editSubmitHandler (evt) {
 
 function addSubmitHandler (evt) {
   evt.preventDefault();
+  let addElement = {name, link,}
+  addElement.name = popLand.value;
+  addElement.link = popLink.value;
+  newElements(addElement);
   closePopup(popupAdd);
+  formElementAdd.reset();
 }
 
 formElementEdit.addEventListener('submit', editSubmitHandler);
