@@ -1,6 +1,6 @@
 let closeButton = document.querySelectorAll('.popup__close-button');
-let popupEdit = document.querySelector('.popup__edit');
-let popupAdd = document.querySelector('.popup__add');
+let popupEdit = document.querySelector('.popup_type_edit');
+let popupAdd = document.querySelector('.popup_type_add');
 let openEditButton = document.querySelector('.profile__edit-button');
 let openAddButton = document.querySelector('.profile__add-button');
 let name = document.querySelector('.profile__text');
@@ -11,7 +11,7 @@ let bio = document.querySelector('.popup__input_place_username');
 let statusInfo = document.querySelector('.popup__input_place_status');
 let popLand = document.querySelector('.popup__input_place_land');
 let popLink = document.querySelector('.popup__input_place_link');
-let picPopup = document.querySelector('.popup__opened-picture');
+let picPopup = document.querySelector('.popup_type_opened-picture');
 
 function openPopup (i) {
   i.classList.add('popup_opened')
