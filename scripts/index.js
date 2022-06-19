@@ -11,6 +11,7 @@ let bio = document.querySelector('.popup__input_place_username');
 let statusInfo = document.querySelector('.popup__input_place_status');
 let popLand = document.querySelector('.popup__input_place_land');
 let popLink = document.querySelector('.popup__input_place_link');
+let picPopup = document.querySelector('.popup__opened-picture');
 
 function openPopup (i) {
   i.classList.add('popup_opened')
@@ -105,8 +106,10 @@ let elements = document.querySelector('.elements');
 
 function newElements (cell){
   let newElement = elementsTemplate.querySelector('.elements__cell').cloneNode(true);
-  newElement.querySelector('.elements__name').textContent = cell.name;
-  newElement.querySelector('.elements__image').src = cell.link;
+  let elementPic = newElement.querySelector('.elements__image');
+  let elementText = newElement.querySelector('.elements__name');
+  elementText.textContent = cell.name;
+  elementPic.src = cell.link;
   elements.insertAdjacentElement('afterbegin', newElement);
 
 
@@ -119,7 +122,15 @@ function newElements (cell){
   likeButton.addEventListener('click', function(){
     likeButton.classList.toggle('elements__like-button_type_active')
   })
-
+  
+  elementPic.addEventListener('click', function picPopupOpened () {
+    let popImage = picPopup.querySelector('.popup__image');
+    let popFigcaption = picPopup.querySelector('.popup__figcaption');
+    popImage.src = elementPic.src;
+    popFigcaption.textContent = elementText.textContent;
+    openPopup(picPopup);
+  })
+  
   return newElement;
 }
 
