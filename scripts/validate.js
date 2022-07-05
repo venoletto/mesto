@@ -1,7 +1,7 @@
 const config = {
     formSelector: '.popup__form',
     fieldsSelector: '.popup__fieldset',
-    inputList: '.popup__input_valid',
+    inputList: '.popup__input',
     buttonElement: '.popup__submit',
     inactiveButtonClass: 'popup__submit_type_invalid',
     inputErrorClass: 'popup__input_type_invalid',
