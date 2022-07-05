@@ -1,3 +1,4 @@
+const popup = document.querySelectorAll('.popup');
 const closeButton = document.querySelectorAll('.popup__close-button');
 const popupEdit = document.querySelector('.popup_type_edit');
 const popupAdd = document.querySelector('.popup_type_add');
@@ -99,6 +100,14 @@ closeButton.forEach(function(e) {
   e.addEventListener('click', function(close) {
       const actualPopup = close.target.closest('.popup');
       closePopup(actualPopup);
+  });
+});
+
+popup.forEach(function(popup){
+  popup.addEventListener('click', function(evt){
+    if (evt.target === evt.currentTarget){
+      closePopup(popup);
+    }
   });
 });
 
