@@ -17,12 +17,21 @@ const elements = document.querySelector('.elements');
 const popImage = picPopup.querySelector('.popup__image');
 const popFigcaption = picPopup.querySelector('.popup__figcaption');
 
+function closePopupEsc(evt){
+  if (evt.key === "Escape"){
+    const popupOpened = document.querySelector('.popup_opened')
+    closePopup(popupOpened)
+  }
+}
+
 function openPopup (i) {
   i.classList.add('popup_opened')
+  document.addEventListener('keydown', closePopupEsc)
 }
 
 function closePopup (i) {
   i.classList.remove('popup_opened');
+  document.removeEventListener('keydown', closePopupEsc)
 }
 
 function popupEditOpen(){
