@@ -36,13 +36,21 @@ function hasInvalidInput(inputList){
    })
 };
 
+function disabledButtonState(buttonElement, settings){
+  buttonElement.classList.add(settings.inactiveButtonClass);
+  buttonElement.setAttribute('disabled', 'disabled');
+}
+
+function enabledButtonState(buttonElement, settings){
+  buttonElement.classList.remove(settings.inactiveButtonClass);
+  buttonElement.removeAttribute('disabled');
+}
+
 function toggleButtonState(inputList, buttonElement, settings){
   if (hasInvalidInput(inputList, settings)) {
-    buttonElement.classList.add(settings.inactiveButtonClass);
-    buttonElement.setAttribute('disabled', 'disabled');
+    disabledButtonState(buttonElement, settings)
   } else {
-    buttonElement.classList.remove(settings.inactiveButtonClass);
-    buttonElement.removeAttribute('disabled');
+    enabledButtonState(buttonElement, settings)
   }
 };
 

@@ -1,5 +1,5 @@
-const popup = document.querySelectorAll('.popup');
-const closeButton = document.querySelectorAll('.popup__close-button');
+const popups = document.querySelectorAll('.popup');
+const popupsCloseButtons = document.querySelectorAll('.popup__close-button');
 const popupEdit = document.querySelector('.popup_type_edit');
 const popupAdd = document.querySelector('.popup_type_add');
 const openEditButton = document.querySelector('.profile__edit-button');
@@ -25,13 +25,13 @@ function closePopupEsc(evt){
   }
 }
 
-function openPopup (i) {
-  i.classList.add('popup_opened')
+function openPopup (popup) {
+  popup.classList.add('popup_opened')
   document.addEventListener('keydown', closePopupEsc)
 }
 
-function closePopup (i) {
-  i.classList.remove('popup_opened');
+function closePopup (popup) {
+  popup.classList.remove('popup_opened');
   document.removeEventListener('keydown', closePopupEsc)
 }
 
@@ -56,6 +56,8 @@ function addSubmitHandler (evt) {
   renderCard(addElement);
   closePopup(popupAdd);
   formElementAdd.reset();
+  const submitButton = popupAdd.querySelector('.popup__submit');
+  disabledButtonState(submitButton, config)
 }
 
 function createNewElements (cell){
@@ -79,6 +81,7 @@ function createNewElements (cell){
   
   elementPic.addEventListener('click', function picPopupOpened () {
     popImage.src = elementPic.src;
+    popImage.alt = elementText.textContent;
     popFigcaption.textContent = elementText.textContent;
     openPopup(picPopup);
   })
@@ -87,7 +90,7 @@ function createNewElements (cell){
 }
 
 function renderCard(newElement) {
-  elements.insertAdjacentElement('afterbegin', createNewElements(newElement));
+  elements.prepend(createNewElements(newElement));
 }
 
 initialCards.forEach(renderCard);
@@ -96,15 +99,15 @@ openEditButton.addEventListener('click', popupEditOpen);
 
 openAddButton.addEventListener('click', function(){openPopup(popupAdd)});
 
-closeButton.forEach(function(e) {
+popupsCloseButtons.forEach(function(e) {
   e.addEventListener('click', function(close) {
       const actualPopup = close.target.closest('.popup');
       closePopup(actualPopup);
   });
 });
 
-popup.forEach(function(popup){
-  popup.addEventListener('click', function(evt){
+popups.forEach(function(popup){
+  popup.addEventListener('mousedown', function(evt){
     if (evt.target === evt.currentTarget){
       closePopup(popup);
     }
