@@ -13,10 +13,22 @@ const statusInfo = document.querySelector('.popup__input_place_status');
 const popLand = document.querySelector('.popup__input_place_land');
 const popLink = document.querySelector('.popup__input_place_link');
 const picPopup = document.querySelector('.popup_type_opened-picture');
-const elementsTemplate = document.querySelector('.elements__template').content;
 const elements = document.querySelector('.elements');
 const popImage = picPopup.querySelector('.popup__image');
 const popFigcaption = picPopup.querySelector('.popup__figcaption');
+const config = {
+  formSelector: '.popup__form',
+  fieldsSelector: '.popup__fieldset',
+  inputList: '.popup__input',
+  buttonElement: '.popup__submit',
+  inactiveButtonClass: 'popup__submit_type_invalid',
+  inputErrorClass: 'popup__input_type_invalid',
+  errorClass: 'popup__input-error_type_active',
+};
+import Card from './card.js';
+import initialCards from './cards.js';
+import FormValidator from './validate.js';
+
 
 function closePopupEsc(evt){
   if (evt.key === "Escape"){
@@ -41,59 +53,49 @@ function popupEditOpen(){
   statusInfo.value = status.textContent;
 }
 
+function picPopupOpened () {
+  popImage.src = this._link;
+  popImage.alt = this._name;
+  popFigcaption.textContent = this._name;
+  openPopup(picPopup);
+}
+
 function editSubmitHandler (evt) {
     evt.preventDefault();
+    const editValidator = new FormValidator(config, formElementEdit);
+    editValidator._enableValidation();
     name.textContent = bio.value;
     status.textContent = statusInfo.value;
     closePopup(popupEdit);
 }
+
 
 function addSubmitHandler (evt) {
   evt.preventDefault();
   const addElement = {name, link,}
   addElement.name = popLand.value;
   addElement.link = popLink.value;
-  renderCard(addElement);
+  const addValidator = new FormValidator(config, formElementAdd);
+  addValidator._enableValidation();
+  const card = new Card ('.elements__template', addElement, picPopupOpened);
+  const cardItem = card.generateCard()
+  renderCard(cardItem);
   closePopup(popupAdd);
   formElementAdd.reset();
   const submitButton = popupAdd.querySelector('.popup__submit');
   disabledButtonState(submitButton, config)
 }
 
-function createNewElements (cell){
-  const newElement = elementsTemplate.querySelector('.elements__cell').cloneNode(true);
-  const elementPic = newElement.querySelector('.elements__image');
-  const elementText = newElement.querySelector('.elements__name');
-  elementText.textContent = cell.name;
-  elementPic.src = cell.link;
-  elementPic.alt = cell.name;
+initialCards.forEach((item) => {
+  const card = new Card ('.elements__template', item, picPopupOpened);
+  const cardItem = card.generateCard()
 
-  const trashButton = newElement.querySelector('.elements__trash');
-  trashButton.addEventListener('click', function(){
-    newElement.remove();
-  })
+  renderCard(cardItem);
+});
 
-  const likeButton = newElement.querySelector('.elements__like-button');
-  function pushLike(){
-    likeButton.classList.toggle('elements__like-button_type_active')
-  }
-  likeButton.addEventListener('click', pushLike);
-  
-  elementPic.addEventListener('click', function picPopupOpened () {
-    popImage.src = elementPic.src;
-    popImage.alt = elementText.textContent;
-    popFigcaption.textContent = elementText.textContent;
-    openPopup(picPopup);
-  })
-  
-  return newElement;
+function renderCard(cardItem) {
+  elements.prepend(cardItem);
 }
-
-function renderCard(newElement) {
-  elements.prepend(createNewElements(newElement));
-}
-
-initialCards.forEach(renderCard);
 
 openEditButton.addEventListener('click', popupEditOpen);
 
