@@ -1,4 +1,4 @@
-.elements{
+.cards{
     max-width: 880px;
     margin: 0 auto;
     display: grid;
@@ -9,13 +9,13 @@
 
 
 @media (max-width:896px){
-    .elements{
+    .cards{
         max-width: 584px;
     }
 }
 
 @media (max-width:596px){
-    .elements{
+    .cards{
         max-width: 282px;
         gap: 20px;
     }

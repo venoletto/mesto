@@ -1,6 +1,6 @@
 import Card from './card.js';
 import initialCards from './cards.js';
-import FormValidator from './validate.js';
+import FormValidator from './FormValidator.js';
 
 const popups = document.querySelectorAll('.popup');
 const popupsCloseButtons = document.querySelectorAll('.popup__close-button');
@@ -17,11 +17,11 @@ const statusInfo = document.querySelector('.popup__input_place_status');
 const popLand = document.querySelector('.popup__input_place_land');
 const popLink = document.querySelector('.popup__input_place_link');
 const picPopup = document.querySelector('.popup_type_opened-picture');
-const elements = document.querySelector('.elements');
+const cardsContainer = document.querySelector('.cards');
 const popImage = picPopup.querySelector('.popup__image');
 const popFigcaption = picPopup.querySelector('.popup__figcaption');
 
-const config = {
+const validationConfig = {
   formSelector: '.popup__form',
   fieldsSelector: '.popup__fieldset',
   inputList: '.popup__input',
@@ -49,14 +49,14 @@ function closePopup (popup) {
   document.removeEventListener('keydown', closePopupEsc)
 }
 
-function picPopupOpened () {
-  popImage.src = this._link;
-  popImage.alt = this._name;
-  popFigcaption.textContent = this._name;
+function picPopupOpened (link, name) {
+  popImage.src = link;
+  popImage.alt = name;
+  popFigcaption.textContent = name;
   openPopup(picPopup);
 }
 
-function editSubmitHandler (evt) {
+function handlerEditSubmit (evt) {
     evt.preventDefault();
     name.textContent = bio.value;
     status.textContent = statusInfo.value;
@@ -64,14 +64,15 @@ function editSubmitHandler (evt) {
 }
 
 
-function addSubmitHandler (evt) {
+function handleAddSubmit (evt) {
   evt.preventDefault();
-  const addElement = {name, link,}
-  addElement.name = popLand.value;
-  addElement.link = popLink.value;
-  const card = new Card ('.elements__template', addElement, picPopupOpened);
+  const cardElement = {name, link,}
+  cardElement.name = popLand.value;
+  cardElement.link = popLink.value;
+  const card = new Card ('.elements__template', cardElement, picPopupOpened);
   const cardItem = card.generateCard()
   renderCard(cardItem);
+  formElementAdd.reset();
   closePopup(popupAdd);
 }
 
@@ -83,27 +84,22 @@ initialCards.forEach((item) => {
 });
 
 function renderCard(cardItem) {
-  elements.prepend(cardItem);
+  cardsContainer.prepend(cardItem);
 }
 
 openEditButton.addEventListener('click', () =>{
-  openPopup(popupEdit)
   bio.value = name.textContent;
   statusInfo.value = status.textContent;
-  const editValidation = new FormValidator(config, formElementEdit);
-  editValidation.enableValidation();
+  openPopup(popupEdit);
 });
 
 openAddButton.addEventListener('click', () => {
-  const addValidation = new FormValidator(config, formElementAdd);
-  formElementAdd.reset();
-  addValidation._toggleButtonState();
-  addValidation.enableValidation();
+  addValidation.toggleButtonState();
   openPopup(popupAdd)
 });
 
-popupsCloseButtons.forEach(function(e) {
-  e.addEventListener('click', function(close) {
+popupsCloseButtons.forEach(function(el) {
+  el.addEventListener('click', function(close) {
       const actualPopup = close.target.closest('.popup');
       closePopup(actualPopup);
   });
@@ -117,6 +113,12 @@ popups.forEach(function(popup){
   });
 });
 
-formElementEdit.addEventListener('submit', editSubmitHandler);
+formElementEdit.addEventListener('submit', handlerEditSubmit);
 
-formElementAdd.addEventListener('submit', addSubmitHandler);
+formElementAdd.addEventListener('submit', handleAddSubmit);
+
+const editValidation = new FormValidator(validationConfig, formElementEdit);
+editValidation.enableValidation();
+
+const addValidation = new FormValidator(validationConfig, formElementAdd);
+addValidation.enableValidation();
