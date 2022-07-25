@@ -23,26 +23,26 @@ class Card{
       return this._element;
     }
 
-    _handleLikeButton(){
+    _handleLikeCard(){
       this._element.querySelector('.elements__like-button').classList.toggle('elements__like-button_type_active');
     }
 
-    _handleTrashButton(){
+    _handleDeleteCard(){
       this._element.remove();
       this._element = null;
     }
 
     _setEventListeners() {
       this._element.querySelector('.elements__like-button').addEventListener('click', () => {
-        this._handleLikeButton();
+        this._handleLikeCard();
       });
 
       this._element.querySelector('.elements__trash').addEventListener('click', () => {
-        this._handleTrashButton();
+        this._handleDeleteCard();
       });
 
       this._image.addEventListener('click', () => {
-        this._handleImageClick(this._link, this._name);
+        this._handleImageClick({ name: this._name, link: this._link });
       });
     }
   }
