@@ -23,8 +23,8 @@ class Card{
       return this._element;
     }
 
-    _likeButton(){
-      this.likeButton.classList.toggle('elements__like-button_type_active')
+    _likeButtons(){
+      this._element.querySelector('.elements__like-button').classList.toggle('elements__like-button_type_active');
     }
 
     _trashButton(){
@@ -39,7 +39,7 @@ class Card{
 
     _setEventListeners() {
       this._element.querySelector('.elements__like-button').addEventListener('click', () => {
-        this._likeButton();
+        this._likeButtons();
       });
 
       this._element.querySelector('.elements__trash').addEventListener('click', () => {
