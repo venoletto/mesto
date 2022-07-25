@@ -96,10 +96,10 @@ openEditButton.addEventListener('click', () =>{
 
 openAddButton.addEventListener('click', () => {
   const addValidation = new FormValidator(config, formElementAdd);
+  formElementAdd.reset();
   addValidation._toggleButtonState();
   addValidation.enableValidation();
   openPopup(popupAdd)
-  formElementAdd.reset();
 });
 
 popupsCloseButtons.forEach(function(e) {
