@@ -1,7 +1,7 @@
 class Card{
-    constructor(container, data, handleImageClick){
-        this._name = data.name;
-        this._link = data.link;
+    constructor(data, container, handleImageClick){
+        this._lland = data.lland;
+        this._llink = data.llink;
         this._container = container;
         this._handleImageClick = handleImageClick;
     }
@@ -16,9 +16,9 @@ class Card{
       this._image = this._element.querySelector('.elements__image');
       this._setEventListeners();
   
-      this._image.src = this._link;
-      this._image.alt = this._name;
-      this._element.querySelector('.elements__name').textContent = this._name;
+      this._image.src = this._llink;
+      this._image.alt = this._lland;
+      this._element.querySelector('.elements__name').textContent = this._lland;
   
       return this._element;
     }
@@ -42,7 +42,7 @@ class Card{
       });
 
       this._image.addEventListener('click', () => {
-        this._handleImageClick({ name: this._name, link: this._link });
+        this._handleImageClick({ lland: this._lland, llink: this._llink });
       });
     }
   }
