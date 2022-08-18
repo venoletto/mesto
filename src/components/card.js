@@ -14,6 +14,8 @@ class Card{
     generateCard() {
       this._element = this._getTemplate();
       this._image = this._element.querySelector('.elements__image');
+      this._buttonLike = this._element.querySelector('.elements__like-button');
+      this._buttonTrash = this._element.querySelector('.elements__trash');
       this._setEventListeners();
   
       this._image.src = this._llink;
@@ -24,7 +26,7 @@ class Card{
     }
 
     _handleLikeCard(){
-      this._element.querySelector('.elements__like-button').classList.toggle('elements__like-button_type_active');
+      this._buttonLike.classList.toggle('elements__like-button_type_active');
     }
 
     _handleDeleteCard(){
@@ -33,11 +35,11 @@ class Card{
     }
 
     _setEventListeners() {
-      this._element.querySelector('.elements__like-button').addEventListener('click', () => {
+      this._buttonLike.addEventListener('click', () => {
         this._handleLikeCard();
       });
 
-      this._element.querySelector('.elements__trash').addEventListener('click', () => {
+      this._buttonTrash.addEventListener('click', () => {
         this._handleDeleteCard();
       });
 

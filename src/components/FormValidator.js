@@ -47,12 +47,12 @@ class FormValidator {
       this._buttonElement.classList.add(
         this._validationConfig.inactiveButtonClass
       );
-      this._buttonElement.disabled = "disabled";
+      this._buttonElement.disabled = true;
     } else {
       this._buttonElement.classList.remove(
         this._validationConfig.inactiveButtonClass
       );
-      this._buttonElement.disabled = "";
+      this._buttonElement.disabled = false;
     }
   }
 

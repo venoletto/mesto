@@ -1,14 +1,14 @@
-import Card from '../components/card.js';
+import Card from '../components/Card.js';
 import Section from '../components/Section.js';
-import initialCards from '../utils/cards.js';
+import initialCards from '../utils/Cards.js';
 import FormValidator from '../components/FormValidator.js';
 import PopupWithForm from '../components/PopupWithForm.js';
 import PopupWithImage from '../components/PopupWithImage.js';
 import UserInfo from '../components/UserInfo.js';
 import './index.css';
 
-const openEditButton = document.querySelector('.profile__edit-button');
-const openAddButton = document.querySelector('.profile__add-button');
+const EditButton = document.querySelector('.profile__edit-button');
+const AddButton = document.querySelector('.profile__add-button');
 const formElementAdd = document.querySelector('.popup__form-add');
 const formElementEdit = document.querySelector('.popup__form-edit');
 const popLand = document.querySelector('.popup__input_place_land');
@@ -63,14 +63,14 @@ function handleEditSubmit (data) {
   popupEdit.close();
 }
 
-openEditButton.addEventListener('click', handleEditUser);
+EditButton.addEventListener('click', handleEditUser);
 
 function handleAddSubmit (cardData) {
   cardBlock.addItem(createCard(cardData));
   popupAdd.close();
 }
 
-openAddButton.addEventListener('click', function () {
+AddButton.addEventListener('click', function () {
   placeAddValidation.toggleButtonState();
   popupAdd.open();
 });
@@ -80,3 +80,5 @@ placeEditValidation.enableValidation();
 
 const placeAddValidation = new FormValidator(validationConfig, formElementAdd);
 placeAddValidation.enableValidation();
+
+// Извините за позднее исправление, не было доступа к ПК
