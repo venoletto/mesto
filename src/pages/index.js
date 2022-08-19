@@ -80,5 +80,3 @@ placeEditValidation.enableValidation();
 
 const placeAddValidation = new FormValidator(validationConfig, formElementAdd);
 placeAddValidation.enableValidation();
-
-// Извините за позднее исправление, не было доступа к ПК
