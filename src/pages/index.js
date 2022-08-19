@@ -7,8 +7,8 @@ import PopupWithImage from '../components/PopupWithImage.js';
 import UserInfo from '../components/UserInfo.js';
 import './index.css';
 
-const EditButton = document.querySelector('.profile__edit-button');
-const AddButton = document.querySelector('.profile__add-button');
+const buttonEdit = document.querySelector('.profile__edit-button');
+const buttonAdd = document.querySelector('.profile__add-button');
 const formElementAdd = document.querySelector('.popup__form-add');
 const formElementEdit = document.querySelector('.popup__form-edit');
 const popLand = document.querySelector('.popup__input_place_land');
@@ -63,14 +63,14 @@ function handleEditSubmit (data) {
   popupEdit.close();
 }
 
-EditButton.addEventListener('click', handleEditUser);
+buttonEdit.addEventListener('click', handleEditUser);
 
 function handleAddSubmit (cardData) {
   cardBlock.addItem(createCard(cardData));
   popupAdd.close();
 }
 
-AddButton.addEventListener('click', function () {
+buttonAdd.addEventListener('click', function () {
   placeAddValidation.toggleButtonState();
   popupAdd.open();
 });
@@ -80,5 +80,3 @@ placeEditValidation.enableValidation();
 
 const placeAddValidation = new FormValidator(validationConfig, formElementAdd);
 placeAddValidation.enableValidation();
-
-// Извините за позднее исправление, не было доступа к ПК
